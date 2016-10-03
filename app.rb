@@ -43,8 +43,10 @@ class HangpersonApp < Sinatra::Base
     @game.guess(letter)
     
     if @game.guess(letter) == false
-      if @guesses.to_s.split(//).include?(letter) == false
-        flash[:message] = "You have already used that letter."
+      if @word.to_s.include?(letter) == false
+        if @guesses.to_s.include?(letter) == false
+          flash[:message] = "You have already used that letter."
+        end
       end
     end
     
