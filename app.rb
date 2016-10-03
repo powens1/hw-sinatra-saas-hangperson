@@ -42,7 +42,7 @@ class HangpersonApp < Sinatra::Base
     
     if letter.to_s == '' or letter[/[^a-zA-Z]+/]
       redirect '/show'
-      fash[:message] = "Invalid guess."
+      flash[:message] = "Invalid guess."
     end
     
     if @game.guess(letter) == false
